@@ -3,6 +3,7 @@ class Concrete
     @samplesContainer = samples.container
     @audioUrl = 'audio'
     @beatUrl = ''
+    @controls = new window.Controls(@)
 
     # TODO: make BPM user controlled
     @BPM = 100
@@ -11,20 +12,7 @@ class Concrete
 
     @sounds = {}
     
-    @createButtons()
     @fetchSounds()
-
-  createButtons: =>
-    @createPlayButton()
-    @createStopButton()
-
-  createPlayButton: =>
-    $('body').append('<div class="play">play</div>')
-    @playSelectedOnClick()
-
-  createStopButton: =>
-    $('body').append('<div class="stop">stop</div>')
-    @stopSelectedOnClick()
 
   beatContainer: (filename) =>
     $("<div class='beat-container' data-filename='#{filename}'></div>")
@@ -73,20 +61,10 @@ class Concrete
     $('.stop').click =>
       source.noteOff(0)
 
-  playSelectedOnClick: =>
-    $('.play').click =>
-      elements = $('.on')
-      @playLoop()
-      @loopId = setInterval(@playLoop, (elements.length * @quarterNoteTime * 1000))
-
   playLoop: =>
     startTime = @context.currentTime
     @playSelectedClips(startTime)
-
-  stopSelectedOnClick: =>
-    $('.stop').click =>
-      clearInterval(@loopId)
-     
+    
   playSelectedClips: (startTime) =>
     elements = $('.on')
     i = 0
