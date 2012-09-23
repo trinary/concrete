@@ -1,4 +1,4 @@
-Sinatra template, with Gemfiles/configurations I would probably use (such as coffeescript/sprockets, haml, bootstrap etc.)
+Playing with webkit's webaudio api.
 
 ```
 bundle
