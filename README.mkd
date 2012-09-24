@@ -1,6 +1,11 @@
 Playing with webkit's webaudio api.
 
+1. 
 ```
 bundle
 bundle exec rackup
 ```
+
+2. Open browser at specified port
+
+3. Drop some phat beats.
