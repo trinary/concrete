@@ -18,8 +18,10 @@ class Controls
   playSelectedOnClick: =>
     $('.play').click =>
       elements = $('.on')
-      @concrete.playLoop()
-      @loopId = setInterval(@concrete.playLoop, (elements.length * @concrete.quarterNoteTime * 1000))
+
+      if elements.length > 0
+        @concrete.playLoop()
+        @loopId = setInterval(@concrete.playLoop, (elements.length * @concrete.quarterNoteTime * 1000))
 
   stopSelectedOnClick: =>
     $('.stop').click =>
