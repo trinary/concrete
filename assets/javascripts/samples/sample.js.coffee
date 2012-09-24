@@ -2,7 +2,8 @@ class Sample
   @container = ''
 
   constructor: (filename) ->
-    @container = $("<div class='beat-container' data-filename='#{filename}'></div>")
+    num = filename.match(/(\d+)/)[0]
+    @container = $("<div class='beat-container' data-filename='#{filename}'>#{num}</div>")
     @addToTapeOnDoubleClick()
 
   addToTapeOnDoubleClick: =>
