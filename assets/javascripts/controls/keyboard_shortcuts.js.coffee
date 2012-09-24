@@ -6,8 +6,6 @@ class KeyboardShortcuts
     $(document).keypress (event) =>
       if event.which == 32
         event.preventDefault()
-        $('.on').each (i, element) =>
-          $(element).removeClass('on')
-
+        $('.tape').find('.beat-container').remove()
 
 window.KeyboardShortcuts = KeyboardShortcuts

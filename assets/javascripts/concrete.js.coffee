@@ -4,6 +4,7 @@ class Concrete
     @audioUrl = 'audio'
     @beatUrl = ''
     @controls = new window.Controls(@)
+    @tape = new window.Tape
 
     # TODO: make BPM user controlled
     @BPM = 100
@@ -47,6 +48,10 @@ class Concrete
 
       if container.hasClass('on')
         @playFile container.data('filename')
+
+      setTimeout =>
+        container.toggleClass('on')
+      , @quarterNoteTime*1000
 
   playFile: (filename, noteDelay = 0) =>
     source = @context.createBufferSource()
