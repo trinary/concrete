@@ -11,8 +11,9 @@ class App < Sinatra::Base
 
   configure do
     sprockets.append_path(File.join(root, 'assets', 'javascripts'))
+    sprockets.append_path(File.join(root, 'assets', 'stylesheets'))
     sprockets.append_path(File.join(root, 'vendor', 'assets', 'javascripts'))
-    sprockets.append_path File.expand_path('assets/stylesheets', settings.root)
+    sprockets.append_path(File.join(root, 'vendor', 'assets', 'stylesheets'))
     sprockets.append_path File.expand_path('assets/images', settings.root)
 
     sprockets.context_class.instance_eval do

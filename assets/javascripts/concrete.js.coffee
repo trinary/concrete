@@ -76,6 +76,7 @@ class Concrete
     while i < elements.length
       element = elements[i]
       time = startTime + i * @quarterNoteTime
+
       @playFile($(element).data('filename'), time, true)
       i += 1
 
