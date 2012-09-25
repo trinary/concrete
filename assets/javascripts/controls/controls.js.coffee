@@ -6,6 +6,7 @@ class Controls
   createButtons: =>
     @createPlayButton()
     @createStopButton()
+    @createSortButton()
 
   createPlayButton: =>
     $('body').append('<div class="play">play</div>')
@@ -14,6 +15,14 @@ class Controls
   createStopButton: =>
     $('body').append('<div class="stop">stop</div>')
     @stopSelectedOnClick()
+
+  createSortButton: =>
+    $('body').append('<div class="sort">sort clips</div>')
+    @sortOnClick()
+
+  sortOnClick: =>
+    $('.sort').click =>
+      samples.sortSamples()
 
   playSelectedOnClick: =>
     $('.play').click =>

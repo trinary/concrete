@@ -8,7 +8,6 @@ class Sample
 
   addToTapeOnDoubleClick: =>
     @container.dblclick =>
-      console.log 'dblclick'
       $('.tape').append(@container.addClass('on'))
 
 window.Sample = Sample
