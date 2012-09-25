@@ -9,8 +9,8 @@ class Samples
     $('body').append(@container)
 
   sortSamples: =>
-    @container.children('.sample')
-
-
+    sampleContainers = []
+    @container.children('.sample').each (i, element) =>
+      console.log 'hey'
 $ ->
   window.samples = new Samples
