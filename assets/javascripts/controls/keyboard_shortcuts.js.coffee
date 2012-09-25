@@ -1,13 +1,21 @@
 class KeyboardShortcuts
-  constructor: ->
-    @clearSelectedBeatsOnSpace()
+  constructor:(concrete) ->
+    @concrete = concrete
+    @clearSelectedBeatsOnX()
+    @togglePlayingOnSpace()
 
-  clearSelectedBeatsOnSpace: =>
+  togglePlayingOnSpace: =>
     $(document).keypress (event) =>
-      if event.which == 32
+      console.log event
+      if event.which = 32
         event.preventDefault()
-        $('.stop').trigger('click')
-        $('.samples').append($('.tape').children('.sample').removeClass('on'))
-        $('.tape').find('.sample').remove()
+        concrete.togglePlay()
+
+
+  clearSelectedBeatsOnX: =>
+    $(document).keypress (event) =>
+      if event.which == 120
+        event.preventDefault()
+        concrete.clearSamples()
 
 window.KeyboardShortcuts = KeyboardShortcuts
