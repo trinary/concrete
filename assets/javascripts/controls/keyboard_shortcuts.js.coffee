@@ -5,7 +5,7 @@ class KeyboardShortcuts
 
   togglePlayingOnSpace: =>
     $(document).keypress (event) =>
-      if event.which = 32
+      if event.which == 32
         event.preventDefault()
         concrete.togglePlay()
 
