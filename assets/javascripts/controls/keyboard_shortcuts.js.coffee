@@ -1,12 +1,10 @@
 class KeyboardShortcuts
-  constructor:(concrete) ->
-    @concrete = concrete
+  constructor: ->
     @clearSelectedBeatsOnX()
     @togglePlayingOnSpace()
 
   togglePlayingOnSpace: =>
     $(document).keypress (event) =>
-      console.log event
       if event.which = 32
         event.preventDefault()
         concrete.togglePlay()
