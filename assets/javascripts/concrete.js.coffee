@@ -63,6 +63,30 @@ class Concrete
     $('.stop').click =>
       source.noteOff(0)
 
+  play: =>
+    elements = $('.on')
+
+    if elements.length > 0
+      @playLoop()
+      @loopId = setInterval(@playLoop, (elements.length * @quarterNoteTime * 1000))
+
+  stop: =>
+    clearInterval(@loopId)
+    @loopId = undefined
+
+  togglePlay: =>
+    if @loopId
+      @stop()
+    else
+      @play()
+
+  clearSamples: =>
+    @stop()
+    $('.samples').append($('.tape').children('.sample').removeClass('on'))
+    $('.tape').find('.sample').remove()
+    samples.sortSamples()
+
+
   playLoop: =>
     startTime = @context.currentTime
     @playSelectedClips(startTime)
@@ -79,3 +103,4 @@ class Concrete
 
 $ ->
   window.concrete = new Concrete
+  keyboardShortcuts = new KeyboardShortcuts

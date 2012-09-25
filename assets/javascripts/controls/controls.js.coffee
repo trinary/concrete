@@ -1,6 +1,5 @@
 class Controls
-  constructor: (concrete)->
-    @concrete = concrete
+  constructor: ->
     @createButtons()
 
   createButtons: =>
@@ -25,15 +24,9 @@ class Controls
       samples.sortSamples()
 
   playSelectedOnClick: =>
-    $('.play').click =>
-      elements = $('.on')
-
-      if elements.length > 0
-        @concrete.playLoop()
-        @loopId = setInterval(@concrete.playLoop, (elements.length * @concrete.quarterNoteTime * 1000))
+    $('.play').click => concrete.play()
 
   stopSelectedOnClick: =>
-    $('.stop').click =>
-      clearInterval(@loopId)
+    $('.stop').click => concrete.stop()
 
 window.Controls = Controls

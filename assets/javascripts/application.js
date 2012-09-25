@@ -7,7 +7,3 @@
 //= require samples/samples.js
 //= require samples/sample.js
 //= require concrete.js
-
-$(function() {
-  var keyboardShortcuts = new window.KeyboardShortcuts
-});
