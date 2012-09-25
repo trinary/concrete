@@ -15,9 +15,6 @@ class Concrete
     
     @fetchSounds()
 
-  beatContainer: (filename) =>
-    $("<div class='beat-container' data-filename='#{filename}'></div>")
-
   fetchSounds: =>
     $.getJSON @audioUrl, (data) =>
       @beatHref = data.beats_href

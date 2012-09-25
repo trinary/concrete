@@ -7,7 +7,7 @@ class KeyboardShortcuts
       if event.which == 32
         event.preventDefault()
         $('.stop').trigger('click')
-        $('.samples').append($('.tape').children('.beat-container').removeClass('on'))
-        $('.tape').find('.beat-container').remove()
+        $('.samples').append($('.tape').children('.sample').removeClass('on'))
+        $('.tape').find('.sample').remove()
 
 window.KeyboardShortcuts = KeyboardShortcuts

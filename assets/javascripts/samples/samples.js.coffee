@@ -8,5 +8,9 @@ class Samples
   attachContainerToBody: =>
     $('body').append(@container)
 
+  sortSamples: =>
+    @container.children('.sample')
+
+
 $ ->
   window.samples = new Samples
