@@ -72,6 +72,7 @@ class Concrete
 
   stop: =>
     clearInterval(@loopId)
+    @loopId = undefined
 
   togglePlay: =>
     if @loopId
