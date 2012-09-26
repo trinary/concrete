@@ -44,13 +44,15 @@ class Concrete
       container.toggleClass('on')
 
       if container.hasClass('on')
-        @playFile container.data('filename')
+        @playFile container
 
       setTimeout =>
         container.toggleClass('on')
       , @quarterNoteTime*1000
 
-  playFile: (filename, noteDelay = 0) =>
+  playFile: (element, noteDelay = 0) =>
+    filename = element.data('filename')
+
     source = @context.createBufferSource()
     javascriptNode = @context.createJavaScriptNode(2048)
 
@@ -62,6 +64,7 @@ class Concrete
 
     $('.stop').click =>
       source.noteOff(0)
+      container.toggleClass('on')
 
   play: =>
     elements = $('.tape').children()
@@ -82,10 +85,9 @@ class Concrete
 
   clearSamples: =>
     @stop()
-    $('.samples').append($('.tape').children('.sample').removeClass('on'))
+    $('.samples').append($('.tape').children('.sample').remove())
     $('.tape').find('.sample').remove()
     samples.sortSamples()
-
 
   playLoop: =>
     startTime = @context.currentTime
@@ -98,7 +100,12 @@ class Concrete
       element = elements[i]
       time = startTime + i * @quarterNoteTime
 
-      @playFile($(element).data('filename'), time, true)
+      element = $(element)
+      element.toggleClass('on')
+
+      if element.hasClass('on')
+        @playFile(element, time, true)
+
       i += 1
 
 $ ->
