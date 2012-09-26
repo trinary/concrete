@@ -12,7 +12,7 @@ class Concrete
     @quarterNoteTime = (60/@BPM)
 
     @sounds = {}
-    
+
     @fetchSounds()
 
   fetchSounds: =>
@@ -64,7 +64,7 @@ class Concrete
       source.noteOff(0)
 
   play: =>
-    elements = $('.on')
+    elements = $('.tape').children()
 
     if elements.length > 0
       @playLoop()
@@ -90,9 +90,9 @@ class Concrete
   playLoop: =>
     startTime = @context.currentTime
     @playSelectedClips(startTime)
-    
+
   playSelectedClips: (startTime) =>
-    elements = $('.on')
+    elements = $('.tape').children()
     i = 0
     while i < elements.length
       element = elements[i]

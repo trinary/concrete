@@ -10,10 +10,10 @@ class Sample
     @container.dblclick =>
       tape = $('.tape')
 
-      if tape.has(@container).length == 1
-        $('.samples').append(@container.removeClass('on'))
+      if tape.children(@container).length
+        $('.samples').append(@container)
       else
-        tape.append(@container.addClass('on'))
+        tape.append(@container)
 
       samples.sortSamples()
 
