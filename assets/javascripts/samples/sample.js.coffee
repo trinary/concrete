@@ -11,7 +11,7 @@ class Sample
       tape = $('.tape')
 
       if tape.has(@container).length == 1
-        $('.samples').append(@container.toggleClass('on'))
+        $('.samples').append(@container.removeClass('on'))
       else
         tape.append(@container.addClass('on'))
 
