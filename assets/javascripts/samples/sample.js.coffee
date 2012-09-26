@@ -15,4 +15,6 @@ class Sample
       else
         tape.append(@container.addClass('on'))
 
+      samples.sortSamples()
+
 window.Sample = Sample
