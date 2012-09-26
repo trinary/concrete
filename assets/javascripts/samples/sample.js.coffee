@@ -10,7 +10,7 @@ class Sample
     @container.dblclick =>
       tape = $('.tape')
 
-      if tape.children(@container).length
+      if tape.find(@container).length
         $('.samples').append(@container)
       else
         tape.append(@container)
