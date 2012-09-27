@@ -4,10 +4,17 @@ class Sample
   constructor: (filename) ->
     num = filename.match(/(\d+)/)[0]
     @container = $("<div class='sample' data-filename='#{filename}'>#{num}</div>")
-    @addToTapeOnDoubleClick()
+    @toggleTapeOnDoubleClick()
 
-  addToTapeOnDoubleClick: =>
+  toggleTapeOnDoubleClick: =>
     @container.dblclick =>
-      $('.tape').append(@container.addClass('on'))
+      tape = $('.tape')
+
+      if tape.find(@container).length
+        $('.samples').append(@container)
+      else
+        tape.append(@container)
+
+      samples.sortSamples()
 
 window.Sample = Sample
